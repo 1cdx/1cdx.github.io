@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1cdx — Code Editor + SFTP untuk Samsung DeX</title>
+  <meta name="description" content="1cdx: code editor Android native berbasis Kotlin dengan SFTP client terintegrasi, dioptimalkan untuk Samsung DeX, keyboard fisik, dan mouse.">
+  <meta name="theme-color" content="#1e1e1e">
+  <meta property="og:title" content="1cdx — Code Editor + SFTP untuk Samsung DeX">
+  <meta property="og:description" content="Alternatif VS Code yang ringan untuk Android. Edit kode di server lewat SFTP, simpan dengan Ctrl+S, langsung ter-upload.">
+  <meta property="og:url" content="https://1cdx.github.io/">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="croot.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><img src="icon.svg" alt="" width="28" height="28"> 1cdx</a>
+      <nav>
+        <a href="#fitur">Fitur</a>
+        <a href="#dex">DeX</a>
+        <a href="https://github.com/1cdx/1cdx">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <div class="hero-text">
+        <p class="eyebrow">Android · Kotlin · Samsung DeX</p>
+        <h1>Code editor ringan dengan SFTP bawaan untuk Android.</h1>
+        <p class="lead">Buka folder di server lewat SFTP, edit kodenya di tablet atau ponsel yang tersambung ke DeX, lalu tekan <kbd>Ctrl</kbd>+<kbd>S</kbd>. File langsung ter-upload ke server.</p>
+
+        <div class="cta">
+          <a id="download-btn" class="btn btn-primary" href="https://github.com/1cdx/1cdx/releases/latest/download/1cdx.apk">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg>
+            <span>Unduh APK <span id="release-version"></span></span>
+          </a>
+          <a id="release-notes" class="btn btn-ghost" href="https://github.com/1cdx/1cdx/releases/latest">Catatan rilis</a>
+        </div>
+        <p id="release-meta" class="meta">Rilis terbaru dari GitHub Releases · Android 8.0+</p>
+      </div>
+
+      <div class="hero-shot" aria-hidden="true">
+        <div class="window">
+          <div class="titlebar"><span></span><span></span><span></span><em>1cdx — user@vps:/var/www/app</em></div>
+          <div class="ide">
+            <aside class="tree">
+              <div class="t-head">EXPLORER</div>
+              <div class="t-item open">▾ app</div>
+              <div class="t-item lvl">▸ public</div>
+              <div class="t-item lvl active">main.go</div>
+              <div class="t-item lvl">config.json</div>
+              <div class="t-item lvl">deploy.sh</div>
+            </aside>
+            <div class="editor">
+              <div class="tabs"><span class="tab on">main.go •</span><span class="tab">config.json</span></div>
+<pre><code><i>1</i><b class="k">package</b> main
+<i>2</i>
+<i>3</i><b class="k">import</b> <b class="s">"net/http"</b>
+<i>4</i>
+<i>5</i><b class="k">func</b> <b class="f">main</b>() {
+<i>6</i>    http.<b class="f">HandleFunc</b>(<b class="s">"/"</b>, handler)
+<i>7</i>    http.<b class="f">ListenAndServe</b>(<b class="s">":8080"</b>, <b class="k">nil</b>)
+<i>8</i>}</code></pre>
+            </div>
+          </div>
+          <div class="statusbar"><span>Connected: user@vps</span><span>Go · Ln 6, Col 12</span><span class="ok">Uploaded ✓</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fitur" class="wrap section">
+      <h2>Fitur</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Editor native yang cepat</h3>
+          <p>Dibangun dengan Kotlin dan <code>sora-editor</code>. Ada syntax highlighting TextMate, tema ala VS Code, code folding, bracket matching, dan multi-cursor. Targetnya tetap responsif di file puluhan ribu baris.</p>
+        </article>
+        <article class="card">
+          <h3>SFTP client terintegrasi</h3>
+          <p>Kelola profil server dengan password atau SSH key (ed25519, ecdsa, rsa). Folder dimuat saat dibuka saja, jadi hemat bandwidth.</p>
+        </article>
+        <article class="card">
+          <h3>Auto-upload saat simpan</h3>
+          <p>File disimpan dulu ke cache lokal, lalu di-upload di background. Kalau jaringan putus, perubahan tetap aman dan 1cdx akan tersambung ulang otomatis.</p>
+        </article>
+        <article class="card">
+          <h3>Kredensial terenkripsi</h3>
+          <p>Password dan private key disimpan lewat Android Keystore, tidak pernah sebagai plain text.</p>
+        </article>
+        <article class="card">
+          <h3>Multi-tab &amp; status bar</h3>
+          <p>Tab dengan penanda perubahan yang belum disimpan. Status bar menampilkan koneksi, bahasa, posisi kursor, dan status sinkronisasi.</p>
+        </article>
+        <article class="card">
+          <h3>Ringan</h3>
+          <p>Bukan WebView atau Electron. Target pemakaian RAM di bawah 120 MB meski banyak tab terbuka.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="dex" class="wrap section">
+      <h2>Dirancang untuk Samsung DeX</h2>
+      <p class="sub">Layout split-pane yang bisa diubah ukurannya, klik kanan mouse untuk menu konteks, dan shortcut keyboard yang biasa dipakai di desktop.</p>
+      <div class="shortcuts">
+        <div><kbd>Ctrl</kbd>+<kbd>S</kbd><span>Simpan &amp; upload ke server</span></div>
+        <div><kbd>Ctrl</kbd>+<kbd>B</kbd><span>Tampilkan/sembunyikan explorer</span></div>
+        <div><kbd>Ctrl</kbd>+<kbd>P</kbd><span>Cari file cepat</span></div>
+        <div><kbd>Ctrl</kbd>+<kbd>F</kbd><span>Find &amp; replace</span></div>
+        <div><kbd>Ctrl</kbd>+<kbd>W</kbd><span>Tutup tab</span></div>
+        <div><kbd>Ctrl</kbd>+<kbd>`</kbd><span>Panel terminal SSH</span></div>
+      </div>
+    </section>
+
+    <section class="wrap section install">
+      <h2>Cara pasang</h2>
+      <ol>
+        <li>Unduh <a id="download-link" href="https://github.com/1cdx/1cdx/releases/latest/download/1cdx.apk">1cdx.apk</a> dari rilis terbaru.</li>
+        <li>Buka file APK lalu izinkan instalasi dari sumber ini jika diminta.</li>
+        <li>Rilis berikutnya bisa langsung dipasang di atas versi lama karena memakai sertifikat yang sama.</li>
+      </ol>
+      <p class="meta">1cdx masih dalam tahap pengembangan awal. Verifikasi file dengan <a id="checksum-link" href="https://github.com/1cdx/1cdx/releases/latest">SHA256SUMS.txt</a> di halaman rilis.</p>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <span>1cdx · Lisensi GPL-3.0</span>
+    <a href="https://github.com/1cdx/1cdx">Kode sumber</a>
+  </footer>
+</body>
+</html>
