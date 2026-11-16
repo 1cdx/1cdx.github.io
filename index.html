@@ -22,6 +22,7 @@
       <a class="brand" href="#top"><img src="icon.svg" alt="" width="28" height="28"> 1cdx</a>
       <nav>
         <a href="#fitur">Fitur</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="#dex">DeX</a>
         <a href="https://github.com/1cdx/1cdx">GitHub</a>
       </nav>
@@ -31,21 +32,22 @@
   <main id="top">
     <section class="hero wrap">
       <div class="hero-text">
-        <p class="eyebrow">Android · Kotlin · Samsung DeX</p>
+        <p class="eyebrow"><span class="badge badge-dev">Preview</span> Android · Kotlin · Samsung DeX</p>
         <h1>Code editor ringan dengan SFTP bawaan untuk Android.</h1>
-        <p class="lead">Buka folder di server lewat SFTP, edit kodenya di tablet atau ponsel yang tersambung ke DeX, lalu tekan <kbd>Ctrl</kbd>+<kbd>S</kbd>. File langsung ter-upload ke server.</p>
+        <p class="lead">1cdx sedang dibangun untuk alur kerja ini: buka folder di server lewat SFTP, edit kodenya di tablet atau ponsel yang tersambung ke DeX, lalu tekan <kbd>Ctrl</kbd>+<kbd>S</kbd> dan file langsung ter-upload ke server.</p>
 
         <div class="cta">
           <a id="download-btn" class="btn btn-primary" href="https://github.com/1cdx/1cdx/releases/latest/download/1cdx.apk">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"/></svg>
-            <span>Unduh APK <span id="release-version"></span></span>
+            <span>Unduh Preview <span id="release-version"></span></span>
           </a>
           <a id="release-notes" class="btn btn-ghost" href="https://github.com/1cdx/1cdx/releases/latest">Catatan rilis</a>
         </div>
         <p id="release-meta" class="meta">Rilis terbaru dari GitHub Releases · Android 8.0+</p>
+        <p class="notice">Masih tahap awal pengembangan. Build preview belum memuat fitur di bawah. Lihat <a href="#roadmap">roadmap</a> untuk statusnya.</p>
       </div>
 
-      <div class="hero-shot" aria-hidden="true">
+      <figure class="hero-shot" aria-hidden="true">
         <div class="window">
           <div class="titlebar"><span></span><span></span><span></span><em>1cdx — user@vps:/var/www/app</em></div>
           <div class="ide">
@@ -71,33 +73,41 @@
           </div>
           <div class="statusbar"><span>Connected: user@vps</span><span>Go · Ln 6, Col 12</span><span class="ok">Uploaded ✓</span></div>
         </div>
-      </div>
+        <figcaption>Rancangan tampilan</figcaption>
+      </figure>
     </section>
 
     <section id="fitur" class="wrap section">
-      <h2>Fitur</h2>
+      <h2>Fitur yang direncanakan</h2>
+      <p class="sub">Setiap fitur diberi label milestone tempat fitur itu dikerjakan.</p>
       <div class="grid">
         <article class="card">
+          <span class="badge badge-m1">Milestone 1</span>
           <h3>Editor native yang cepat</h3>
           <p>Dibangun dengan Kotlin dan <code>sora-editor</code>. Ada syntax highlighting TextMate, tema ala VS Code, code folding, bracket matching, dan multi-cursor. Targetnya tetap responsif di file puluhan ribu baris.</p>
         </article>
         <article class="card">
+          <span class="badge badge-m2">Milestone 2</span>
           <h3>SFTP client terintegrasi</h3>
           <p>Kelola profil server dengan password atau SSH key (ed25519, ecdsa, rsa). Folder dimuat saat dibuka saja, jadi hemat bandwidth.</p>
         </article>
         <article class="card">
+          <span class="badge badge-m2">Milestone 2</span>
           <h3>Auto-upload saat simpan</h3>
           <p>File disimpan dulu ke cache lokal, lalu di-upload di background. Kalau jaringan putus, perubahan tetap aman dan 1cdx akan tersambung ulang otomatis.</p>
         </article>
         <article class="card">
+          <span class="badge badge-m2">Milestone 2</span>
           <h3>Kredensial terenkripsi</h3>
           <p>Password dan private key disimpan lewat Android Keystore, tidak pernah sebagai plain text.</p>
         </article>
         <article class="card">
+          <span class="badge badge-m1">Milestone 1</span>
           <h3>Multi-tab &amp; status bar</h3>
           <p>Tab dengan penanda perubahan yang belum disimpan. Status bar menampilkan koneksi, bahasa, posisi kursor, dan status sinkronisasi.</p>
         </article>
         <article class="card">
+          <span class="badge badge-m1">Sepanjang proyek</span>
           <h3>Ringan</h3>
           <p>Bukan WebView atau Electron. Target pemakaian RAM di bawah 120 MB meski banyak tab terbuka.</p>
         </article>
@@ -106,7 +116,7 @@
 
     <section id="dex" class="wrap section">
       <h2>Dirancang untuk Samsung DeX</h2>
-      <p class="sub">Layout split-pane yang bisa diubah ukurannya, klik kanan mouse untuk menu konteks, dan shortcut keyboard yang biasa dipakai di desktop.</p>
+      <p class="sub">Layout split-pane yang bisa diubah ukurannya, klik kanan mouse untuk menu konteks, dan shortcut keyboard yang biasa dipakai di desktop. Shortcut dasar dikerjakan di Milestone 1, panel terminal di Milestone 3.</p>
       <div class="shortcuts">
         <div><kbd>Ctrl</kbd>+<kbd>S</kbd><span>Simpan &amp; upload ke server</span></div>
         <div><kbd>Ctrl</kbd>+<kbd>B</kbd><span>Tampilkan/sembunyikan explorer</span></div>
@@ -117,14 +127,35 @@
       </div>
     </section>
 
+    <section id="roadmap" class="wrap section">
+      <h2>Roadmap</h2>
+      <ol class="roadmap">
+        <li class="active">
+          <span class="badge badge-progress">Sedang dikerjakan</span>
+          <h3>Milestone 1: Core Editor &amp; DeX Layout</h3>
+          <p>Editor dengan syntax highlighting, layout split-pane yang bisa di-resize, multi-tab, dan shortcut keyboard dasar. Sementara bekerja pada file lokal.</p>
+        </li>
+        <li>
+          <span class="badge badge-plan">Direncanakan</span>
+          <h3>Milestone 2: SFTP Engine &amp; Sync</h3>
+          <p>Connection manager terenkripsi, file explorer remote, auto-upload saat <kbd>Ctrl</kbd>+<kbd>S</kbd>, dan auto-reconnect.</p>
+        </li>
+        <li>
+          <span class="badge badge-plan">Direncanakan</span>
+          <h3>Milestone 3: Polishing &amp; Terminal SSH</h3>
+          <p>Menu klik kanan lengkap, status sinkronisasi, penanganan error jaringan, dan panel terminal SSH.</p>
+        </li>
+      </ol>
+    </section>
+
     <section class="wrap section install">
       <h2>Cara pasang</h2>
       <ol>
-        <li>Unduh <a id="download-link" href="https://github.com/1cdx/1cdx/releases/latest/download/1cdx.apk">1cdx.apk</a> dari rilis terbaru.</li>
+        <li>Unduh <a id="download-link" href="https://github.com/1cdx/1cdx/releases/latest/download/1cdx.apk">1cdx.apk</a> dari rilis preview terbaru.</li>
         <li>Buka file APK lalu izinkan instalasi dari sumber ini jika diminta.</li>
         <li>Rilis berikutnya bisa langsung dipasang di atas versi lama karena memakai sertifikat yang sama.</li>
       </ol>
-      <p class="meta">1cdx masih dalam tahap pengembangan awal. Verifikasi file dengan <a id="checksum-link" href="https://github.com/1cdx/1cdx/releases/latest">SHA256SUMS.txt</a> di halaman rilis.</p>
+      <p class="meta">Build preview dibuat otomatis dari setiap perubahan dan isinya bertambah mengikuti roadmap. Verifikasi file dengan <a id="checksum-link" href="https://github.com/1cdx/1cdx/releases/latest">SHA256SUMS.txt</a> di halaman rilis.</p>
     </section>
   </main>
 
