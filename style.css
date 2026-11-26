@@ -89,6 +89,7 @@ pre b { font-weight: 400; }
 .badge-m1 { background: #0b3550; color: var(--accent-hi); }
 .badge-m2 { background: #2f2342; color: #d2a8ff; }
 .badge-progress { background: #0d3b30; color: var(--ok); }
+.badge-done { background: #0b3550; color: var(--accent-hi); }
 .badge-plan { background: #2d2d2d; color: var(--muted); }
 .card .badge { margin-bottom: 10px; }
 .notice { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid #ffcc66; background: #2a2414; border-radius: 0 8px 8px 0; color: #e6d7a8; font-size: .92rem; max-width: 52ch; }
@@ -97,6 +98,7 @@ pre b { font-weight: 400; }
 .roadmap { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
 .roadmap li { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
 .roadmap li.active { border-color: #1d5c4f; }
+.roadmap li.done { opacity: .85; }
 .roadmap h3 { margin: 8px 0 6px; font-size: 1.05rem; color: #fff; }
 .roadmap p { margin: 0; color: var(--muted); font-size: .95rem; }
 
